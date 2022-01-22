@@ -1,13 +1,22 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './index.html'],
   theme: {
     extend: {
       fontFamily: {
-        'primefont' : ["Poppins", "sans-serif"]
+        'srfnt' : ["Barlow", "sans-serif"],
+        'prfnt' : ["Poppins", "sans-serif"]
       },
       
       colors: {
-        brclr: {
+
+        brclr: colors.blue,
+        sbrclr: colors.pink,
+        nclr: colors.neutral,
+
+        /*
+        sbrclr: {
           100: "#D33479",
           150: "#bf2065",
           200: "#ab0c51",
@@ -16,7 +25,7 @@ module.exports = {
           350: "#6f0014"
         },
 
-        sbrclr: {
+        brclr: {
           100: "#5024ED",
           150: "#3c10d9",
           200: "#2700c5",
@@ -30,8 +39,8 @@ module.exports = {
           150: "#ebebeb",
           200: '#d7d7d7',
           250: "#c3c3c3",
-          300: '#000000',
-          350: "#afafaf"
+          300: '#afafaf',
+          350: "#9b9b9b"
         },
 
         snclr: {
@@ -42,6 +51,7 @@ module.exports = {
           300: '#505050',
           350: "#646464"
         },
+        */
       }
     },
     screens: {

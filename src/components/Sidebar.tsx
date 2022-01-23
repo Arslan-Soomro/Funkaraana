@@ -116,7 +116,7 @@ const Sidebar: FC = ({ children }) => {
         </div>
       </div>
 
-      <section>
+      <section className="h-full w-full flex flex-col">
         {children}
       </section>
     </section>

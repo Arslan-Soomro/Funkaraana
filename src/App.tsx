@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar"
 import Sidebar from "./components/Sidebar"
 import { Routes, Route } from "react-router-dom"
 import AddProduct from "./components/AddProduct"
+import ViewProducts from "./components/ViewProducts"
 
 
 function App() {
@@ -11,10 +12,9 @@ function App() {
   return (
     <div className="App h-full w-full font-prfnt">
       {/* <Navbar /> */}
-      {/* <Sidebar >
-        <AddProduct />
-      </Sidebar> */}
-      <Sidebar />
+      <Sidebar >
+        <ViewProducts />
+      </Sidebar>
       <Routes>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />

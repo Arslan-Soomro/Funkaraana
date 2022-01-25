@@ -1,4 +1,5 @@
 export interface ProductDataType{
+    id: number,
     name: string,
     seller: string,
     price: number,

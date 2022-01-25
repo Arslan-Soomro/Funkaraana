@@ -1,7 +1,8 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 import { ProductDataType } from "../utils/customTypes";
 
-const ProductCard = ({ name, seller, price, image, description, halfCard }: ProductDataType) => {
+const ProductCard = ({ id, name, seller, price, image, description, halfCard }: ProductDataType) => {
   return (
     <div className="cursor-pointer w-fit py-2 px-4 max-w-[220px]">
       <div className="relative w-[200px] h-[150px] min-w-[200px] min-h-[200px] max-h-[200px] rounded-lg shadow-lg transition-all delay-100 hover:shadow-xl hover:scale-105">
@@ -21,7 +22,9 @@ const ProductCard = ({ name, seller, price, image, description, halfCard }: Prod
             />
           </svg>
         </div>
-        <img src={image} className="w-full h-full object-cover rounded-lg" />
+        <Link to="/prod">
+          <img src={image} className="w-full h-full object-cover rounded-lg" />
+        </Link>
       </div>
       {halfCard ? null :
       <div className="py-2 px-1">
@@ -30,7 +33,7 @@ const ProductCard = ({ name, seller, price, image, description, halfCard }: Prod
         </p>
         <p className="text-nclr-500 truncate">by { seller }</p>
         {/* TODO implement a function that converst price to its proper format */}
-        <p className="font-bold text-sbrclr-600">Rs. { price }</p>
+        <p className="font-bold text-sbrclr-600">Rs. { price }K</p>
       </div>}
     </div>
   );

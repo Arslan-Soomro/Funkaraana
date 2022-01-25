@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 
 const Navbar: FC = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const barSize = 80;
 
   return (
     <>
-    <nav className="bg-white border-b border-nclr-150 fixed w-full h-16 z-20 max-h-[80px]">
+    <nav className="bg-white border-b border-nclr-150 fixed w-full h-16 z-40 max-h-[80px]">
       <div className="container px-6 py-4 mx-auto">
         <div className="md:flex md:items-center md:justify-between">
           <div className="flex items-center justify-between">

@@ -9,16 +9,18 @@ import Hero from "./components/Hero";
 import ProductListing from "./components/ProductListing";
 import Categories from "./components/Categories";
 import SmartCategory from "./components/SmartCategory"
+import Home from "./components/pages/Home";
+import SmartProductListing from "./components/SmartProductListing";
+import Cart from "./Cart";
 
 
 function App() {
   return (
     <div className="App h-full w-full font-prfnt">
-      <SmartCategory />
-      
       <Routes>
-        <Route path="/home" element={<Navbar><Hero /></Navbar>} />
-        <Route path="/prod" element={<Navbar><ProductListing /></Navbar>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/prod/:id" element={<Navbar><SmartProductListing /></Navbar>} />
+        <Route path="/cart" element={<Navbar><Cart /></Navbar>} />
         <Route
           path="/products"
           element={

@@ -6,7 +6,7 @@ const Sidebar: FC = ({ children }) => {
     <section className="w-full h-full flex flex-row bg-nclr-50">
       <div className="h-full max-w-[280px] w-1/4 p-4">
         <div className="h-full w-full shadow-lg shadow-brclr-200 bg-brclr-700 rounded px-3 xs:px-6 py-8 text-white text-sm lg:text-base flex flex-col gap-6 sm:gap-4">
-          <a className="flex flex-col lg:flex-row gap-2 p-2 text-center items-center hover:bg-brclr-600 active:bg-brclr-500  rounded-lg cursor-pointer">
+          <Link to="/products" className="flex flex-col lg:flex-row gap-2 p-2 text-center items-center hover:bg-brclr-600 active:bg-brclr-500  rounded-lg cursor-pointer">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -24,8 +24,8 @@ const Sidebar: FC = ({ children }) => {
               </svg>
             </div>
             <p className="hidden sm:block">Add Product</p>
-          </a>
-          <a className="flex flex-col lg:flex-row gap-2 cursor-pointer text-center items-center hover:bg-brclr-600 active:bg-brclr-500 p-2 rounded-lg">
+          </Link>
+          <Link to="/prodview" className="flex flex-col lg:flex-row gap-2 cursor-pointer text-center items-center hover:bg-brclr-600 active:bg-brclr-500 p-2 rounded-lg">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@ const Sidebar: FC = ({ children }) => {
               </svg>
             </div>
             <p className="hidden sm:block">View Products</p>
-          </a>
+          </Link>
           <a className="flex flex-col lg:flex-row gap-2 cursor-pointer text-center items-center hover:bg-brclr-600 active:bg-brclr-500 p-2 rounded-lg">
             <div>
               <svg
@@ -94,7 +94,7 @@ const Sidebar: FC = ({ children }) => {
             </div>
             <p className="hidden sm:block">Settings</p>
           </a>
-          <a className="flex flex-col lg:flex-row gap-2 cursor-pointer text-center items-center hover:bg-brclr-600 active:bg-brclr-500 p-2 rounded-lg">
+          <Link to="/login" className="flex flex-col lg:flex-row gap-2 cursor-pointer text-center items-center hover:bg-brclr-600 active:bg-brclr-500 p-2 rounded-lg">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -112,7 +112,7 @@ const Sidebar: FC = ({ children }) => {
               </svg>
             </div>
             <p className="hidden sm:block">Go Back</p>
-          </a>
+          </Link>
         </div>
       </div>
 

@@ -5,8 +5,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        'prfnt' : ["Poppins", "sans-serif"],
         'srfnt' : ["Barlow", "sans-serif"],
-        'prfnt' : ["Poppins", "sans-serif"]
+        
       },
       
       colors: {
@@ -82,5 +83,8 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    //require('@tailwindcss/forms') -> Required for working of Categories but they work any way and this line produces error
+    require('@tailwindcss/custom-forms'),
+  ],
 }

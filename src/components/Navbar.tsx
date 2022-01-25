@@ -1,17 +1,19 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar: FC = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const barSize = 80;
 
   return (
-    <nav className="bg-white border-b border-nclr-150 absolute z-10 w-full h-16">
+    <>
+    <nav className="bg-white border-b border-nclr-150 fixed w-full h-16 z-20 max-h-[80px]">
       <div className="container px-6 py-4 mx-auto">
         <div className="md:flex md:items-center md:justify-between">
           <div className="flex items-center justify-between">
             <div className="text-xl font-semibold text-gray-700">
               <a
-                className="text-2xl font-black text-brclr-600 transition-colors duration-200 transform lg:text-2xl hover:text-brclr-700"
+                className="text-xl xs:text-2xl font-black text-brclr-600 transition-colors duration-200 transform lg:text-2xl hover:text-brclr-700"
                 href="#"
               >
                 Funkaraana
@@ -61,12 +63,12 @@ const Navbar = () => {
               >
                 Products
               </a>
-              <a
-                href="#"
+              <Link
+                to="/products"
                 className="px-2 py-1 mx-2 mt-2 text-sm text-nclr-600 transition-colors duration-200 transform rounded-md md:mt-0 hover:bg-nclr-100 active:bg-nclr-200"
               >
                 Dashboard
-              </a>
+              </Link>
             </div>
 
             <div className="flex items-center mt-4 md:mt-0">
@@ -94,6 +96,11 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+
+    <div className="pt-[64px] w-full h-full">
+      {children}
+    </div>
+    </>
   );
 };
 

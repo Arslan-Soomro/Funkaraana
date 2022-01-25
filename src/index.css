@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,6 +11,7 @@
       height: 100%;
       width: 100%;
   }
+
   body{
       height: 100%;
       width: 100%;
@@ -23,4 +25,34 @@
   input:focus-visible{
       outline: none;
   }
+
+  .res-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 220px);
+      justify-content: center;
+      gap: 10px;
+  }
+
+  .caret{
+    animation: blink-caret .75s step-end infinite;
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: black; }
+  }
+
+  .with-bgimg{
+    background-image: url('images/bgs/bg-10.jpg');
+    background-repeat: no-repeat;
+  }
+
+  .checkmark-icon{
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%20fill%3D%22white%22%20stroke%3D%22white%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M20.285%202l-11.285%2011.567-5.286-5.011-3.714%203.716%209%208.728%2015-15.285z%22%2F%3E%3C%2Fsvg%3E");
+    background-size: 9px 9px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
 }

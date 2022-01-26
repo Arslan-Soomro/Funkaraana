@@ -6,10 +6,10 @@ import globalReducer from "./global-reducer";
 
 const GlobalState: FC = ({ children }) => {
 
-    const [state, dispatch] = useReducer<any>(globalReducer, {state: defaultGlobalState, action: {type: "default"}});
+    const [state, dispatch] = useReducer<any>(globalReducer, defaultGlobalState);
 
     return(
-        <GlobalContext.Provider value={[state, dispatch]}>{children}</GlobalContext.Provider>
+        <GlobalContext.Provider value={[state as State_T, dispatch as Dispatch_T]}>{children}</GlobalContext.Provider>
     )
 
 };

@@ -8,10 +8,10 @@ const Signup = () => {
         <div
           className="
         flex flex-col
-        justify-center
+        justify-start
         flex-1
         px-4
-        pt-16
+        pt-2
         sm:px-6
         lg:flex-none lg:px-20
         xl:px-24

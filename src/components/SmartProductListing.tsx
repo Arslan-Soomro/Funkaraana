@@ -5,13 +5,14 @@ import { useEffect, useState } from "react";
 import { ProductDataType } from "../utils/customTypes";
 
 const SmartProductListing = () => {
+
     //Get the Id of product user wants to see
     const { id } = useParams();
     //Assume we are fetching data from an api here
-    const [curProduct, setCurProduct] = useState<ProductDataType>();
+    const [curProduct, setCurProduct] = useState<ProductDataType | null>(null);
     
     useEffect(() => {
-        const toFind = products.filter((prod) => (id && parseInt(id) == prod.id))[0];
+        const toFind = products.filter((prod) => (id != undefined && parseInt(id) == prod.id))[0];
         if(toFind != undefined){
             setCurProduct(toFind);
         }

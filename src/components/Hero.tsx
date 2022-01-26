@@ -27,6 +27,7 @@ const Hero = () => {
         Art Of Day
       </p>
         <ProductCard
+          id={1}
           name=""
           seller=""
           image="images/flowers.jpg"

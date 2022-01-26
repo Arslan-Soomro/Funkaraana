@@ -1,12 +1,22 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { Link } from "react-router-dom";
+import { addToCart_ACT, saveCart_ACT } from "../context/global-actions";
+import GlobalContext from "../context/global-context";
 import { ProductDataType } from "../utils/customTypes";
 
 const ProductCard = ({ id, name, seller, price, image, description, halfCard }: ProductDataType) => {
+  
+  const [state, dispatch] = useContext(GlobalContext);
+  
+  const addClickHandler = () => {
+    dispatch({type: addToCart_ACT, payload: {id, name, seller, price, image, description}});
+    dispatch({type: saveCart_ACT});
+  }
+
   return (
     <div className="cursor-pointer w-fit py-2 px-4 max-w-[220px]">
       <div className="relative w-[200px] h-[150px] min-w-[200px] min-h-[200px] max-h-[200px] rounded-lg shadow-lg transition-all delay-100 hover:shadow-xl hover:scale-105">
-      <div className="absolute right-2 -bottom-2 p-1 rounded-lg bg-sbrclr-600 text-white hover:bg-sbrclr-700 active:bg-sbrclr-800">
+      <div onClick={addClickHandler} className="absolute right-2 -bottom-2 p-1 rounded-lg bg-sbrclr-600 text-white hover:bg-sbrclr-700 active:bg-sbrclr-800">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"

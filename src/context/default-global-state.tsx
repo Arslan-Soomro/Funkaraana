@@ -1,5 +1,5 @@
 const defaultGlobalState = {
-    on: false,
+    cartItems: []
 }
 
 export default defaultGlobalState;

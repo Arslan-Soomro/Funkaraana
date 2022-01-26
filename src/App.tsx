@@ -11,8 +11,9 @@ import Categories from "./components/Categories";
 import SmartCategory from "./components/SmartCategory"
 import Home from "./components/pages/Home";
 import SmartProductListing from "./components/SmartProductListing";
-import Cart from "./Cart";
+import SmartCart from "./components/SmartCart";
 
+//TODO Make the Cart Functional
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/prod/:id" element={<Navbar><SmartProductListing /></Navbar>} />
-        <Route path="/cart" element={<Navbar><Cart /></Navbar>} />
+        <Route path="/cart" element={<Navbar><SmartCart /></Navbar>} />
         <Route
           path="/products"
           element={

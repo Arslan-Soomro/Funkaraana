@@ -40,7 +40,8 @@ const TypeWriter = ({words, styleClasses}: {words: string[], styleClasses?: stri
         setTimeout(() => setMode("write") , delay);
     }
   };
-
+  
+  //FIXME this hook produces a memory leak
   useEffect(() => {
     if(text != undefined){
         if(mode === "write"){
@@ -50,7 +51,8 @@ const TypeWriter = ({words, styleClasses}: {words: string[], styleClasses?: stri
         }
     }
   }, [curInd, mode]);
-
+  
+  
   useEffect(() => {
     setText(words[wordInd]);
   }, [wordInd])

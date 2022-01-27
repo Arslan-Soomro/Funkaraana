@@ -22,11 +22,11 @@ const AddProduct = () => {
           </div>
 
           <div className="mb-8">
-            <label htmlFor="prod-up-img" className="ml-1 mb-1 py-1 px-3 rounded-lg bg-sbrclr-600 hover:bg-sbrclr-700 active:bg-sbrclr-800 text-white shadow cursor-pointer border">Upload Image</label>
+            <label htmlFor="prod-up-img" className="ml-1 mb-1 py-1 px-3 rounded-lg bg-sbrclr-600 hover:bg-sbrclr-700 active:bg-sbrclr-800 text-white shadow cursor-pointer">Upload Image</label>
             <input id="prod-up-img" type="file" placeholder="PKR" className="hidden px-5 py-3 rounded-lg w-full text-sm xs:text-base" />
           </div>
 
-          <button onClick={e => e.preventDefault()} className="border text-white bg-sbrclr-600 hover:bg-sbrclr-700 active:bg-sbrclr-800 p-3 w-full rounded-lg shadow-xl shadow-sbrclr-200">Save Product</button>
+          <button onClick={e => e.preventDefault()} className=" text-white bg-sbrclr-600 hover:bg-sbrclr-700 active:bg-sbrclr-800 p-3 w-full rounded-lg shadow-xl shadow-sbrclr-200">Save Product</button>
         </form>
       </div>
     </section>

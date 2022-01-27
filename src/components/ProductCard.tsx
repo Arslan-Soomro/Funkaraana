@@ -10,7 +10,6 @@ const ProductCard = ({ id, name, seller, price, image, description, halfCard }: 
   
   const addClickHandler = () => {
     dispatch({type: addToCart_ACT, payload: {id, name, seller, price, image, description}});
-    dispatch({type: saveCart_ACT});
   }
 
   return (
@@ -43,7 +42,7 @@ const ProductCard = ({ id, name, seller, price, image, description, halfCard }: 
         </p>
         <p className="text-nclr-500 truncate">by { seller }</p>
         {/* TODO implement a function that converst price to its proper format */}
-        <p className="font-bold text-sbrclr-600">Rs. { price }K</p>
+        <p className="font-bold text-sbrclr-600">Rs. { price }</p>
       </div>}
     </div>
   );

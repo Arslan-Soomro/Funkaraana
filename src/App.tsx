@@ -12,17 +12,45 @@ import SmartCategory from "./components/SmartCategory";
 import Home from "./components/pages/Home";
 import SmartProductListing from "./components/SmartProductListing";
 import SmartCart from "./components/SmartCart";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import GlobalContext from "./context/global-context";
 import Page404 from "./components/Page404";
+import Statistics from "./components/Statistics";
+import NotificationMsg from "./components/NotificationMsg";
+import NotificationStack from "./components/NotificationStack";
+import { pushNotification_ACT, removeNotification_ACT, toggleNotificationAdded_ACT } from "./context/global-actions";
 
 //TODO Make the Cart Functional
+//TODO Cancel out sending description to cart items
+
+//TODO Create A Notification System
 
 function App() {
+
   const [state, dispatch] = useContext(GlobalContext);
 
+  useEffect(() => {
+
+    if(state.notificationAdded){
+      //Set Notification Added to False
+      dispatch({type: toggleNotificationAdded_ACT});
+
+      //After Some Time remove the notification
+      setTimeout(() => {
+        dispatch({type: removeNotification_ACT});
+      }, 1000);
+    }
+
+  }, [state.notificationAdded]);
+
   return (
-    <div className="App h-full w-full font-prfnt">
+    <div className="App h-full w-full font-prfnt" onClick={() => {
+      console.log("Clicked");
+      dispatch({type: pushNotification_ACT, payload: "Hello World"});
+    }}>
+      
+      <NotificationStack msgs={state.notifications} />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -33,6 +61,10 @@ function App() {
             </Navbar>
           }
         />
+        <Route
+          path="/seller/statistics"
+          element={<Sidebar><Statistics /></Sidebar>}
+         />
         <Route
           path="/cart"
           element={

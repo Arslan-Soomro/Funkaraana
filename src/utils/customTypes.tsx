@@ -6,6 +6,7 @@ export interface ProductDataType{
     image: string,
     description: string,
     halfCard?: boolean,
+    qty?: number,
 }
 
 export interface CategoryElementProps{

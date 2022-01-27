@@ -1,18 +1,26 @@
 import ProductCard from "./ProductCard";
 import TypeWriter from "./TypeWriter";
+import { products } from "../utils/dummyData";
 
 const Hero = () => {
+  
   return (
+    
     <section className="w-full h-full flex justify-evenly relative items-center flex-col text-pr text-center py-5 px-5">
+      
       <div className="z-10">
+        
         <div>
+          
           <p className="text-sbrclr-600 text-xs xs:text-base">Funkaraana</p>
           <h1 className="font-black text-xl xs:text-4xl">
             A{" "}
+            <span className="text-sbrclr-600">Market</span>
+            {/* Produces Memory Leak
             <TypeWriter
               words={["Market", "Hub", "Place"]}
               styleClasses="text-sbrclr-600"
-            />{" "}
+            />*/}{" "}
             for Quality Art
           </h1>
         </div>
@@ -26,15 +34,17 @@ const Hero = () => {
       <p className="font-black text-2xl xs:mt-0 xs:text-5xl text-center -top-10  tracking-widest text-nclr-200 z-0">
         Art Of Day
       </p>
+      
         <ProductCard
-          id={1}
-          name=""
-          seller=""
-          image="images/flowers.jpg"
-          description=""
-          price={10}
+          id={products[0].id}
+          name={products[0].name}
+          seller={products[0].seller}
+          image={products[0].image}
+          description={products[0].description}
+          price={products[0].price}
           halfCard={true}
         />
+        
       </div>
       
     </section>

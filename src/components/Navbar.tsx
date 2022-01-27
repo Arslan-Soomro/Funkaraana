@@ -1,3 +1,5 @@
+
+import { ShoppingCartIcon } from "@heroicons/react/outline";
 import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -11,12 +13,12 @@ const Navbar: FC = ({ children }) => {
         <div className="md:flex md:items-center md:justify-between">
           <div className="flex items-center justify-between">
             <div className="text-xl font-semibold text-gray-700">
-              <a
+              <Link
                 className="text-xl xs:text-2xl font-black text-brclr-600 transition-colors duration-200 transform lg:text-2xl hover:text-brclr-700"
-                href="#"
+                to="/"
               >
                 Funkaraana
-              </a>
+              </Link>
             </div>
 
             {/* <!-- Mobile menu button --> */}
@@ -71,25 +73,12 @@ const Navbar: FC = ({ children }) => {
             </div>
 
             <div className="flex items-center mt-4 md:mt-0">
-              <button
+              <Link to="/cart"
                 className="hidden mx-4 text-nclr-500 transition-colors duration-200 transform md:block hover:text-nclr-600 active:text-nclr-700 focus:outline-none"
                 aria-label="show notifications"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-              </button>
+                <ShoppingCartIcon className="h-6 w-6" />
+              </Link>
             </div>
           </div>
         </div>

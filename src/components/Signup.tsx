@@ -3,8 +3,7 @@ import { useState } from "react";
 const Signup = () => {
 
   return (
-    <section>
-      <div className="bg-white flex min-h-screen overflow-hidden">
+      <div className="bg-white flex min-h-full overflow-hidden">
         <div
           className="
         flex flex-col
@@ -197,7 +196,7 @@ const Signup = () => {
                       />
                     </div>
                   </div>
-                  <p className="text-xs bg-red-200 p-2 rounded border border-red-400 text-red-600">Error Occured in Type</p>
+                    {/* <p className="text-xs bg-red-200 p-2 rounded border border-red-400 text-red-600">Error Occured in Type</p> */}
                   <div>
                     <button
                       type="submit"
@@ -241,7 +240,6 @@ const Signup = () => {
           />
         </div>
       </div>
-    </section>
   );
 };
 

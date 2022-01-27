@@ -1,7 +1,6 @@
 const Login = () => {
   return (
-    <section>
-      <div className="bg-white flex min-h-screen overflow-hidden">
+      <div className="bg-white flex min-h-full">
         <div
           className="
         flex flex-col
@@ -152,7 +151,6 @@ const Login = () => {
           />
         </div>
       </div>
-    </section>
   );
 };
 

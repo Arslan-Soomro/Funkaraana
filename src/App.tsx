@@ -20,10 +20,14 @@ import NotificationMsg from "./components/NotificationMsg";
 import NotificationStack from "./components/NotificationStack";
 import { pushNotification_ACT, removeNotification_ACT, toggleNotificationAdded_ACT } from "./context/global-actions";
 
-//TODO Make the Cart Functional
 //TODO Cancel out sending description to cart items
 
-//TODO Create A Notification System
+//TODO Connect front-end with backend
+
+/*
+TODO Improvements that can be done if extra time
+make notifications animate
+*/
 
 function App() {
 
@@ -44,10 +48,7 @@ function App() {
   }, [state.notificationAdded]);
 
   return (
-    <div className="App h-full w-full font-prfnt" onClick={() => {
-      console.log("Clicked");
-      dispatch({type: pushNotification_ACT, payload: "Hello World"});
-    }}>
+    <div className="App h-full w-full font-prfnt">
       
       <NotificationStack msgs={state.notifications} />
 

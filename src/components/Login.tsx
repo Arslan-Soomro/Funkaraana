@@ -1,4 +1,11 @@
-const Login = () => {
+import { useRef } from "react";
+import { userData } from "../utils/customTypes";
+
+const Login = ({clickHandler} : {clickHandler: (data: userData) => void}) => {
+
+  const usernameRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+
   return (
       <div className="bg-white flex min-h-full">
         <div
@@ -28,20 +35,21 @@ const Login = () => {
                 <form action="#" method="POST" className="space-y-6">
                   <div>
                     <label
-                      htmlFor="email"
+                      htmlFor="logusername"
                       className="block text-sm font-medium text-nclr-600"
                     >
                       {" "}
-                      Email address{" "}
+                      Username{" "}
                     </label>
                     <div className="mt-1">
                       <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        autoComplete="email"
+                        ref={usernameRef}
+                        id="logusername"
+                        name="username"
+                        type="text"
+                        autoComplete="name"
                         required={true}
-                        placeholder="Your Email"
+                        placeholder="Your Username"
                         className="
                       block
                       w-full
@@ -69,7 +77,7 @@ const Login = () => {
                   </div>
                   <div className="space-y-1">
                     <label
-                      htmlFor="password"
+                      htmlFor="logpassword"
                       className="block text-sm font-medium text-nclr-600"
                     >
                       {" "}
@@ -77,7 +85,8 @@ const Login = () => {
                     </label>
                     <div className="mt-1">
                       <input
-                        id="password"
+                        ref={passwordRef}
+                        id="logpassword"
                         name="password"
                         type="password"
                         autoComplete="current-password"
@@ -111,6 +120,10 @@ const Login = () => {
                   <div>
                     <button
                       type="submit"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        clickHandler({username: usernameRef.current?.value, password: passwordRef.current?.value});
+                      }}
                       className="
                     flex
                     items-center

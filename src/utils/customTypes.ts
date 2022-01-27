@@ -9,6 +9,14 @@ export interface ProductDataType{
     qty?: number,
 }
 
+export interface userData{
+    id?: number,
+    name?: string,
+    username?: string,
+    email?: string,
+    password?: string,
+}
+
 export interface CategoryElementProps{
     children?: any,
     title: string, //Title of the Category

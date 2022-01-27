@@ -19,6 +19,8 @@ import Statistics from "./components/Statistics";
 import NotificationMsg from "./components/NotificationMsg";
 import NotificationStack from "./components/NotificationStack";
 import { pushNotification_ACT, removeNotification_ACT, toggleNotificationAdded_ACT } from "./context/global-actions";
+import SmartSignup from "./components/SmartSignup";
+import SmartLogin from "./components/SmartLogin";
 
 //TODO Cancel out sending description to cart items
 
@@ -42,7 +44,7 @@ function App() {
       //After Some Time remove the notification
       setTimeout(() => {
         dispatch({type: removeNotification_ACT});
-      }, 1000);
+      }, 2000);
     }
 
   }, [state.notificationAdded]);
@@ -94,7 +96,7 @@ function App() {
           path="/signup"
           element={
             <Navbar>
-              <Signup />
+              <SmartSignup />
             </Navbar>
           }
         />
@@ -102,7 +104,7 @@ function App() {
           path="/login"
           element={
             <Navbar>
-              <Login />
+              <SmartLogin />
             </Navbar>
           }
         />

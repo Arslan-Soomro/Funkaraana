@@ -73,10 +73,22 @@ const globalReducer = (state: State_T, action: Action_T) => {
         case pushNotification_ACT:
             //We make sure that we receive a string
             if(action.payload && typeof action.payload === "string"){
-                return{
+                const arrLength = state.notifications.length;
+                const newNotificationState = {
                     ...state,
                     notifications: [...state.notifications, action.payload],
                     notificationAdded: true,
+                }
+
+                //Check if previous and this notification is same
+                if(arrLength > 0){
+                    if(state.notifications[arrLength - 1] != action.payload){
+                        return newNotificationState;
+                    }else{
+                        return state;
+                    }
+                }else{
+                    return newNotificationState;
                 }
             }else{
                 return state;

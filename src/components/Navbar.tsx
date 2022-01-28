@@ -41,11 +41,11 @@ const Navbar: FC = ({ children }) => {
 
           {/* <!-- Mobile Menu open: "block", Menu closed: "hidden" --> */}
           <div
-            className={`flex-1 md:flex md:items-center md:justify-between ${
+            className={`md:flex md:items-center md:justify-between ${
               isMenuOpen ? "block" : "hidden"
             }`}
           >
-            <div className="flex flex-col -mx-4 md:flex-row md:items-center md:mx-8">
+            <div className="flex flex-col -mx-4 md:flex-row md:items-center md:mx-1">
               <Link
                 to="/login"
                 className="px-2 py-1 mx-2 mt-2 text-sm text-nclr-600 transition-colors duration-200 transform rounded-md md:mt-0  hover:bg-nclr-100 active:bg-nclr-200"
@@ -54,27 +54,15 @@ const Navbar: FC = ({ children }) => {
               </Link>
               <Link
                 to="/signup"
-                className="px-2 py-1 mx-2 mt-2 text-sm text-nclr-600 transition-colors duration-200 transform rounded-md md:mt-0  hover:bg-clr-100 active:bg-nclr-200"
-              >
-                Signup
-              </Link>
-              <a
-                href="#"
                 className="px-2 py-1 mx-2 mt-2 text-sm text-nclr-600 transition-colors duration-200 transform rounded-md md:mt-0  hover:bg-nclr-100 active:bg-nclr-200"
               >
-                Products
-              </a>
-              <Link
-                to="/products"
-                className="px-2 py-1 mx-2 mt-2 text-sm text-nclr-600 transition-colors duration-200 transform rounded-md md:mt-0 hover:bg-nclr-100 active:bg-nclr-200"
-              >
-                Dashboard
+                Signup
               </Link>
             </div>
 
             <div className="flex items-center mt-4 md:mt-0">
               <Link to="/cart"
-                className="hidden mx-4 text-nclr-500 transition-colors duration-200 transform md:block hover:text-nclr-600 active:text-nclr-700 focus:outline-none"
+                className="hidden mx-2 text-nclr-500 transition-colors duration-200 transform md:block hover:text-nclr-600 active:text-nclr-700 focus:outline-none"
                 aria-label="show notifications"
               >
                 <ShoppingCartIcon className="h-6 w-6" />

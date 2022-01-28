@@ -23,6 +23,7 @@ import SmartSignup from "./components/SmartSignup";
 import SmartLogin from "./components/SmartLogin";
 import { checkLocalToken_DIS } from "./utils/utils";
 import SmartAddProduct from "./components/SmartAddProduct";
+import ImageUploader from "./components/ImageUploader";
 
 //TODO Cancel out sending description to cart items
 

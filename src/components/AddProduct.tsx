@@ -1,21 +1,27 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
-const AddProduct = ({addClickHandler}: {addClickHandler: ({name, price, image, description}: {name: string, price: number, image: string, description: string}) => void}) => {
+const AddProduct = ({addClickHandler}: {addClickHandler: ({name, price, image, description}: {name: string, price: number, image: File, description: string}) => void}) => {
+
+  const [imageFile, setImageFile] = useState<File | null>(null);
 
   const nameRef = useRef<HTMLInputElement>(null);
   const priceRef = useRef<HTMLInputElement>(null);
-  const imageRef = useRef<HTMLInputElement>(null);
   const descRef = useRef<HTMLTextAreaElement>(null);
 
   const clickHandler = () => {
-    if(nameRef.current?.value && priceRef.current?.value /*&& imageRef.current?.value*/ && descRef.current?.value){
+    if(nameRef.current?.value && priceRef.current?.value && imageFile && descRef.current?.value){
       addClickHandler({
         name: nameRef.current.value,
         price: parseFloat(priceRef.current.value),
-        image: 'image', // default value for now change later
-        //image: imageRef.current.value,
+        image: imageFile,
         description: descRef.current.value,
-      })
+      });
+
+      //Clear All Fields
+      nameRef.current.value = "";
+      priceRef.current.value = "";
+      setImageFile(null);
+      descRef.current.value = "";
     }else{
       console.log("Fill All Fields to Add the Product");
     }
@@ -45,7 +51,7 @@ const AddProduct = ({addClickHandler}: {addClickHandler: ({name, price, image, d
 
           <div className="mb-8">
             <label htmlFor="prod-up-img" className="ml-1 mb-1 py-1 px-3 rounded-lg bg-sbrclr-600 hover:bg-sbrclr-700 active:bg-sbrclr-800 text-white shadow cursor-pointer">Upload Image</label>
-            <input ref={imageRef} id="prod-up-img" type="file" placeholder="PKR" className="hidden px-5 py-3 rounded-lg w-full text-sm xs:text-base" />
+            <input id="prod-up-img" type="file" onChange={(e) => {e.target?.files ? setImageFile(e.target.files[0]) : setImageFile(null)}} placeholder="PKR" className="hidden px-5 py-3 rounded-lg w-full text-sm xs:text-base" />
           </div>
 
           <button onClick={e => {

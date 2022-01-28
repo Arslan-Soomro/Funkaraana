@@ -1,10 +1,13 @@
 
 import { ShoppingCartIcon } from "@heroicons/react/outline";
-import { FC, useState } from "react";
+import { FC, useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import GlobalContext from "../context/global-context";
 
 const Navbar: FC = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  const [state] = useContext(GlobalContext);
 
   return (
     <>

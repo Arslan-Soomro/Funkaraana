@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { pushNotification_ACT } from "../context/global-actions";
+import { checkLocalToken_ACT, pushNotification_ACT } from "../context/global-actions";
 import GlobalContext from "../context/global-context";
 import { userData } from "../utils/customTypes";
 import { postTo } from "../utils/utils";
@@ -28,6 +28,7 @@ const SmartLogin = () => {
             dispatch({type: pushNotification_ACT, payload: res.message});
             
             if(res.status >= 200 && res.status < 300){
+                dispatch({type: checkLocalToken_ACT});
                 navigate('/');
             }
         }

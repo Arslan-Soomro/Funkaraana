@@ -1,9 +1,11 @@
+import { postTo } from "../utils/utils";
 import { State_T, Action_T } from "./context-types";
-import { addToCart_ACT, pushNotification_ACT, refreshCart_ACT, removeFromCart_ACT, removeNotification_ACT, saveCart_ACT, toggleNotificationAdded_ACT } from "./global-actions";
+import { addToCart_ACT, checkLocalToken_ACT, pushNotification_ACT, refreshCart_ACT, removeFromCart_ACT, removeLocalToken_ACT, removeNotification_ACT, saveCart_ACT, toggleNotificationAdded_ACT } from "./global-actions";
 
 
 //FIXME Adding and removing products doesn't happen by the diffrence of 1
 
+//FIXME notifications doesn't work, maybe because of async method
 const globalReducer = (state: State_T, action: Action_T) => {
     switch(action.type){
         case addToCart_ACT:
@@ -115,6 +117,41 @@ const globalReducer = (state: State_T, action: Action_T) => {
                 ...state,
                 notificationAdded: state.notificationAdded ? false : true,
             }
+        /*
+        case checkLocalToken_ACT:
+            //Get Token from Local Storage
+            const localToken = localStorage.getItem('token');
+            //Verify Token
+            const res = await postTo('/user/login', {token: localToken});
+            
+            console.log(res);
+
+            if(res && res.status >= 200 && res.status < 300){
+                if(res.data){
+                    return {
+                        token: localToken,
+                        isLoggedIn: true,
+                        userInfo: res.data
+                    }
+                }
+            }else{
+                localStorage.removeItem('token');
+                return {
+                    token: null,
+                    isLoggedIn: false,
+                    userInfo: null
+                }
+            }
+        case removeLocalToken_ACT:
+            localStorage.removeItem('token');
+            return {
+                token: null,
+                isLoggedIn: false,
+                userInfo: null
+            }
+        */
+        default:
+            return state;
     }
 };
 

@@ -1,3 +1,4 @@
+import { userData } from "../utils/customTypes";
 import { postTo } from "../utils/utils";
 import { State_T, Action_T } from "./context-types";
 import { addToCart_ACT, checkLocalToken_ACT, pushNotification_ACT, refreshCart_ACT, removeFromCart_ACT, removeLocalToken_ACT, removeNotification_ACT, saveCart_ACT, toggleNotificationAdded_ACT } from "./global-actions";
@@ -117,8 +118,27 @@ const globalReducer = (state: State_T, action: Action_T) => {
                 ...state,
                 notificationAdded: state.notificationAdded ? false : true,
             }
-        /*
         case checkLocalToken_ACT:
+            //This case expects that the payload would include token, isLoggedIn, userInfo
+
+            if(action.payload && action.payload.token && action.payload.isLoggedIn && action.payload.userInfo){
+                return {
+                    ...state,
+                    token: action.payload.token,
+                    isLoggedIn: action.payload.isLoggedIn,
+                    userInfo: action.payload.userInfo
+                }
+            }else{
+                return {
+                    ...state,
+                    token: null,
+                    isLoggedIn: false,
+                    userInfo: null,
+                  }
+            }
+
+
+        /*
             //Get Token from Local Storage
             const localToken = localStorage.getItem('token');
             //Verify Token
@@ -129,6 +149,7 @@ const globalReducer = (state: State_T, action: Action_T) => {
             if(res && res.status >= 200 && res.status < 300){
                 if(res.data){
                     return {
+                        ...state,
                         token: localToken,
                         isLoggedIn: true,
                         userInfo: res.data
@@ -137,19 +158,22 @@ const globalReducer = (state: State_T, action: Action_T) => {
             }else{
                 localStorage.removeItem('token');
                 return {
+                    ...state,
                     token: null,
                     isLoggedIn: false,
                     userInfo: null
                 }
             }
+        */
         case removeLocalToken_ACT:
             localStorage.removeItem('token');
             return {
+                ...state,
                 token: null,
                 isLoggedIn: false,
                 userInfo: null
             }
-        */
+            
         default:
             return state;
     }

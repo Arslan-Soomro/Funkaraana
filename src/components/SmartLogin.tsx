@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { checkLocalToken_ACT, pushNotification_ACT } from "../context/global-actions";
 import GlobalContext from "../context/global-context";
 import { userData } from "../utils/customTypes";
-import { postTo } from "../utils/utils";
+import { checkLocalToken_DIS, postTo } from "../utils/utils";
 import Login from "./Login"
 
 const SmartLogin = () => {
@@ -28,7 +28,8 @@ const SmartLogin = () => {
             dispatch({type: pushNotification_ACT, payload: res.message});
             
             if(res.status >= 200 && res.status < 300){
-                dispatch({type: checkLocalToken_ACT});
+                if(res.data) localStorage.setItem('token', res.data.token);
+                checkLocalToken_DIS(dispatch);
                 navigate('/');
             }
         }

@@ -18,7 +18,7 @@ const Categories = ({children, title, categories, filters, menu }: CategoryEleme
         </p>
         <div className="flex gap-2 text-nclr-600 text-xs xs:text-sm">
           <DropMenu title={menu.title} options={menu.options} />
-          <button onClick={() => setOpenSidebar(openSidebar ? false : true)}>
+          <button className="block md:hidden" onClick={() => setOpenSidebar(openSidebar ? false : true)}>
             <FilterIcon className="h-5 w-5 text-nclr-600 hover:text-nclr-700 active:text-nclr-800" />
           </button>
         </div>

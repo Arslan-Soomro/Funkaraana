@@ -2,12 +2,21 @@
 import { ShoppingCartIcon } from "@heroicons/react/outline";
 import { FC, useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { Dispatch_T } from "../context/context-types";
+import { pushNotification_ACT, removeLocalToken_ACT } from "../context/global-actions";
 import GlobalContext from "../context/global-context";
+
+const logoutClickHandler = (dispatchFunc: Dispatch_T) => {
+    dispatchFunc({type: pushNotification_ACT, payload: "User Logged out Succesfully"});
+    dispatchFunc({type: removeLocalToken_ACT});
+}
 
 const Navbar: FC = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
-  const [state] = useContext(GlobalContext);
+  const [state, dispatch] = useContext(GlobalContext);
+
+
 
   return (
     <>
@@ -49,6 +58,23 @@ const Navbar: FC = ({ children }) => {
             }`}
           >
             <div className="flex flex-col -mx-4 md:flex-row md:items-center md:mx-1">
+              {( state.isLoggedIn ? 
+              <>
+              <Link
+                to="/products"
+                className="px-2 py-1 mx-2 mt-2 text-sm text-nclr-600 transition-colors duration-200 transform rounded-md md:mt-0  hover:bg-nclr-100 active:bg-nclr-200"
+              >
+                Dashboard
+              </Link>
+              <button
+                onClick={() => logoutClickHandler(dispatch)}
+                className="px-2 py-1 mx-2 mt-2 text-sm text-nclr-600 transition-colors duration-200 transform rounded-md md:mt-0  hover:bg-nclr-100 active:bg-nclr-200"
+              >
+                Logout
+              </button>
+              </>
+              :
+              <>
               <Link
                 to="/login"
                 className="px-2 py-1 mx-2 mt-2 text-sm text-nclr-600 transition-colors duration-200 transform rounded-md md:mt-0  hover:bg-nclr-100 active:bg-nclr-200"
@@ -61,6 +87,7 @@ const Navbar: FC = ({ children }) => {
               >
                 Signup
               </Link>
+              </>)}
             </div>
 
             <div className="flex items-center mt-4 md:mt-0">

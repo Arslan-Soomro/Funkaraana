@@ -136,35 +136,6 @@ const globalReducer = (state: State_T, action: Action_T) => {
                     userInfo: null,
                   }
             }
-
-
-        /*
-            //Get Token from Local Storage
-            const localToken = localStorage.getItem('token');
-            //Verify Token
-            const res = await postTo('/user/login', {token: localToken});
-            
-            console.log(res);
-
-            if(res && res.status >= 200 && res.status < 300){
-                if(res.data){
-                    return {
-                        ...state,
-                        token: localToken,
-                        isLoggedIn: true,
-                        userInfo: res.data
-                    }
-                }
-            }else{
-                localStorage.removeItem('token');
-                return {
-                    ...state,
-                    token: null,
-                    isLoggedIn: false,
-                    userInfo: null
-                }
-            }
-        */
         case removeLocalToken_ACT:
             localStorage.removeItem('token');
             return {

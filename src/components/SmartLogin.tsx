@@ -14,8 +14,6 @@ const SmartLogin = () => {
 
     const loginclickHandler = async (data: userData) => {
 
-        //console.log(data);
-
         const sendableData: userData = {
             username: data.username,
             password: data.password,

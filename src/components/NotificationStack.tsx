@@ -15,8 +15,9 @@ const NotificationStack = ({ msgs }: { msgs?: string[] }) => {
               leave="transition-opacity duration-150"
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
+              key={i}
             >
-              <NotificationMsg key={i} msg={msg} />
+              <NotificationMsg msg={msg} />
             </Transition>
           ))
         : null}

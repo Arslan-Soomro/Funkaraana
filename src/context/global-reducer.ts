@@ -72,6 +72,7 @@ const globalReducer = (state: State_T, action: Action_T) => {
         
         case pushNotification_ACT:
             //We make sure that we receive a string
+            console.log("Payload: " + action.payload);
             if(action.payload && typeof action.payload === "string"){
                 const arrLength = state.notifications.length;
                 const newNotificationState = {

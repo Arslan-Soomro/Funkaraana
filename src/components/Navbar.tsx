@@ -61,7 +61,7 @@ const Navbar: FC = ({ children }) => {
               {( state.isLoggedIn ? 
               <>
               <Link
-                to="/products"
+                to="/seller/addproduct"
                 className="px-2 py-1 mx-2 mt-2 text-sm text-nclr-600 transition-colors duration-200 transform rounded-md md:mt-0  hover:bg-nclr-100 active:bg-nclr-200"
               >
                 Dashboard

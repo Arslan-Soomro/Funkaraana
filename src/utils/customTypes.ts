@@ -1,3 +1,4 @@
+//TODO segrate this type into two
 export interface ProductDataType{
     id: number,
     name: string,
@@ -7,6 +8,7 @@ export interface ProductDataType{
     description: string,
     halfCard?: boolean,
     qty?: number,
+    buttonOff?: boolean,
 }
 
 export interface userData{

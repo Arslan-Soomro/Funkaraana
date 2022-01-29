@@ -1,8 +1,22 @@
 import ProductCard from "./ProductCard";
-import TypeWriter from "./TypeWriter";
-import { products } from "../utils/dummyData";
+//import TypeWriter from "./TypeWriter";
+//import { products } from "../utils/dummyData";
+import { useEffect, useState } from "react";
+import { ProductDataType } from "../utils/customTypes";
+import { apiUrl } from "../utils/globals";
 
 const Hero = () => {
+
+  const [prod, setProd] = useState<ProductDataType | null>(null);
+
+  useEffect(() => {
+    (async () => {
+      const res = await fetch(`${apiUrl}/product/all`);
+      const resData = await res.json();
+      const rand = Math.floor(Math.random()*resData.data.length);
+      setProd(resData.data[rand]);
+    })(); 
+  }, []);
   
   return (
     
@@ -34,14 +48,14 @@ const Hero = () => {
       <p className="font-black text-2xl xs:mt-0 xs:text-5xl text-center -top-10  tracking-widest text-nclr-200 z-0">
         Art Of Day
       </p>
-      
+
         <ProductCard
-          id={products[0].id}
-          name={products[0].name}
-          seller={products[0].seller}
-          image={products[0].image}
-          description={products[0].description}
-          price={products[0].price}
+          id={prod ? prod.id : 0}
+          name={prod ? prod.name : ""}
+          seller={prod ? prod.seller : ""}
+          image={prod ? prod.image : ""}
+          description={prod ? prod.description : ""}
+          price={prod ? prod.price : 0}
           halfCard={true}
         />
         

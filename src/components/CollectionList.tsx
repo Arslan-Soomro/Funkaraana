@@ -5,7 +5,7 @@ import ProductCard from "./ProductCard";
 //We assume this data is fetched through some api
 
 //TODO let product data be passed as a prop
-const CollectionList = ({products} : {products: ProductDataType[] | undefined}) => {
+const CollectionList = ({products, buttonsOff} : {products: ProductDataType[] | null, buttonsOff?: boolean}) => {
   return (
     <div className="res-grid w-full p-2 overflow-y-auto">
       {products ? products.map((val, ind) => (
@@ -16,6 +16,7 @@ const CollectionList = ({products} : {products: ProductDataType[] | undefined}) 
           seller={val.seller}
           image={val.image}
           description={val.description}
+          buttonOff={buttonsOff}
           key={ind}
         />
       )) : "Loading"}

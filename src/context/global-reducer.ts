@@ -65,7 +65,7 @@ const globalReducer = (state: State_T, action: Action_T) => {
                 return state;
             };
         case saveCart_ACT:
-            localStorage.setItem('cart-items', JSON.stringify(state.cartItems));
+            localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
             return state;
         case refreshCart_ACT:
             return {

@@ -1,4 +1,5 @@
 import { ProductDataType } from "../utils/customTypes";
+import { apiUrl } from "../utils/globals";
 
 const ProductListing = ({id, name, seller, price, image, description}: ProductDataType) => {
   return (
@@ -6,7 +7,7 @@ const ProductListing = ({id, name, seller, price, image, description}: ProductDa
       {/*Image Part */}
       <div className="w-full max-h-[500px] lg:w-2/5 rounded">
         <img
-          src={image}
+          src={apiUrl + "/" + image}
           className="object-contain rouded w-full max-h-[500px]"
         />
       </div>

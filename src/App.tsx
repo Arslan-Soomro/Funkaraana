@@ -25,6 +25,8 @@ import { checkLocalToken_DIS } from "./utils/utils";
 import SmartAddProduct from "./components/SmartAddProduct";
 import ImageUploader from "./components/ImageUploader";
 
+//TODO update backend at product routes to send back seller attribute so we can display it here
+
 //TODO Cancel out sending description to cart items
 
 //TODO Connect front-end with backend
@@ -101,7 +103,7 @@ function App() {
           }
         />
         <Route
-          path="/products"
+          path="seller/addproduct"
           element={
             <Sidebar>
               <SmartAddProduct />
@@ -109,7 +111,7 @@ function App() {
           }
         />
         <Route
-          path="/prodview"
+          path="/seller/viewproduct"
           element={
             <Sidebar>
               <ViewProducts />

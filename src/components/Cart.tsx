@@ -1,18 +1,17 @@
-import { useEffect, useState } from "react";
+import { MouseEventHandler, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ProductDataType } from "../utils/customTypes";
 import CartCard from "./CartCard";
 
 const Cart = ({
   prods,
+  paymentClickHandler,
 }: {
   prods?: ProductDataType[];
+  paymentClickHandler: MouseEventHandler
 }) => {
 
   const [bill, setBill] = useState({subtotal: 0, shipping: 0, tax: 0, total: 0});
-
-  //Percentage = (value/totalValue) * 100
-  //Percentage / 100 = value / totalValue
-  //value = (Percentage * totalValue)/100 
 
 
   useEffect(() => {
@@ -79,7 +78,7 @@ const Cart = ({
           </div>
         </div>
         <div className="relative py-4 mt-2">
-          <button className="p-2 absolute right-0 bg-brclr-600 rounded text-white">
+          <button onClick={paymentClickHandler}  className="p-2 absolute right-0 bg-brclr-600 rounded text-white">
             Continue to Payment
           </button>
         </div>

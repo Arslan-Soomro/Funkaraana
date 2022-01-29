@@ -1,7 +1,7 @@
 import { PlusIcon } from "@heroicons/react/outline";
 import { FC, useContext } from "react";
 import { Link } from "react-router-dom";
-import { addToCart_ACT, saveCart_ACT } from "../context/global-actions";
+import { addToCart_ACT, pushNotification_ACT, saveCart_ACT } from "../context/global-actions";
 import GlobalContext from "../context/global-context";
 import { ProductDataType } from "../utils/customTypes";
 import { apiUrl } from "../utils/globals";
@@ -22,6 +22,11 @@ const ProductCard = ({
     dispatch({
       type: addToCart_ACT,
       payload: { id, name, seller, price, image, description },
+    });
+    
+    dispatch({
+      type: pushNotification_ACT,
+      payload: "Product Added To Cart"
     });
   };
 

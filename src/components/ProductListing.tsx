@@ -1,7 +1,25 @@
+import { useContext, useState } from "react";
+import { addToCart_ACT, pushNotification_ACT } from "../context/global-actions";
+import GlobalContext from "../context/global-context";
 import { ProductDataType } from "../utils/customTypes";
 import { apiUrl } from "../utils/globals";
 
 const ProductListing = ({id, name, seller, price, image, description}: ProductDataType) => {
+
+  const [state, dispatch] = useContext(GlobalContext);
+
+  const addClickHandler = () => {
+    dispatch({
+      type: addToCart_ACT,
+      payload: { id, name, seller, price, image, description },
+    });
+    
+    dispatch({
+      type: pushNotification_ACT,
+      payload: "Product Added To Cart"
+    });
+  };
+
   return (
     <section className="w-full h-full lg:flex flex-row justify-center py-2 px-2">
       {/*Image Part */}
@@ -26,12 +44,8 @@ const ProductListing = ({id, name, seller, price, image, description}: ProductDa
           <p className="mb-1 font-bold text-lg text-sbrclr-600">Reviews: 5.0</p>
         </div>
         
-        <button className="px-5 py-2 rounded-full bg-brclr-600 shadow-lg shadow-brclr-300 text-white font-bold transition-all hover:bg-brclr-700 active:bg-brclr-800">Add to Cart</button>
+        <button onClick={addClickHandler} className="px-5 py-2 rounded-full bg-brclr-600 shadow-lg shadow-brclr-300 text-white font-bold transition-all hover:bg-brclr-700 active:bg-brclr-800">Add to Cart</button>
         
-        {/*
-        Button Variation With Border
-        <button className="border-2 border-brclr-600 px-5 py-2 rounded-full text-brclr-600 font-bold transition-all hover:text-white hover:bg-brclr-600 active:bg-brclr-700">Add to Cart</button>
-        */}
     </div>
     </section>
   );

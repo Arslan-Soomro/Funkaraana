@@ -19,7 +19,7 @@ const CollectionList = ({products, buttonsOff} : {products: ProductDataType[] | 
           buttonOff={buttonsOff}
           key={ind}
         />
-      )) : "Loading"}
+      )) : <div className="spinner"></div>}
     </div>
   );
 };
